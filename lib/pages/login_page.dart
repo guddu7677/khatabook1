@@ -127,7 +127,9 @@ class _loginpageState extends State<loginpage> {
                 height: 50,
                 width: 300,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "otpscreen");
+                  },
                   child: Text(
                     "GET OTP",
                     style: TextStyle(color: Colors.white),
