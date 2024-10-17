@@ -36,6 +36,39 @@ class _patriesPageState extends State<patriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: TextButton(
+        style: ButtonStyle(shadowColor: MaterialStatePropertyAll(Colors.white)),
+        onPressed: () {
+          Navigator.pushNamed(context, "addcustomer");
+        },
+        child: Container(
+          height: 50,
+          width: 150,
+          decoration: BoxDecoration(
+              color: Colors.grey, borderRadius: BorderRadius.circular(18)),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: Icon(
+                  Icons.person_add,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                "ADD CUSTOMER",
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.normal,
+                    color: Colors.white),
+              )
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Row(
