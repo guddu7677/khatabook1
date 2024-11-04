@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:khata_books/pages/login_page.dart';
 
-class otpscreen extends StatefulWidget {
-  const otpscreen({super.key});
+class Otpscreen extends StatefulWidget {
+  const Otpscreen({super.key});
 
   @override
-  State<otpscreen> createState() => _otpscreenState();
+  State<Otpscreen> createState() => _OtpScreenState();
 }
 
-class _otpscreenState extends State<otpscreen> {
-  TextEditingController otpController = TextEditingController();
+class _OtpScreenState extends State<Otpscreen> {
+  final TextEditingController otpController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,72 +22,63 @@ class _otpscreenState extends State<otpscreen> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 5,
-          ),
-          Container(
-            height: 1,
-            width: double.infinity,
-            decoration: BoxDecoration(color: Colors.black38),
-          ),
-          SizedBox(
-            height: 80,
-          ),
+          SizedBox(height: 5),
+          Divider(color: Colors.black38),
+          SizedBox(height: 80),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(right: 10, left: 10),
-              child: Container(
-                height: 50,
-                width: double.infinity,
-                child: TextField(
-                  controller: otpController,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    hintText: "Enter OTP",
-                    border: OutlineInputBorder(),
-                  ),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextField(
+                controller: otpController,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                  hintText: "Enter OTP",
+                  border: OutlineInputBorder(),
                 ),
               ),
             ),
           ),
           Padding(
-              padding: const EdgeInsets.only(bottom: 300),
-              child: Column(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 300,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "bottombar");
-                      },
-                      child: Text(
-                        "Verify OTP",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.blueAccent,
-                      ),
+            padding: const EdgeInsets.only(bottom: 30),
+            child: Column(
+              children: [
+                Container(
+                  height: 50,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "bottombar");
+                    },
+                    child: const Text(
+                      "Verify OTP",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      shape: BeveledRectangleBorder(),
+                      backgroundColor: Colors.blueAccent,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: TextButton(
-                      style: ButtonStyle(),
-                      onPressed: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, "loginpage", (route) => false);
-                      },
-                      child: Text(
-                        "Edit phone number ?",
-                        style: TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.w600),
-                      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        "loginpage",
+                        (route) => false,
+                      );
+                    },
+                    child: const Text(
+                      "Edit phone number?",
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
                     ),
-                  )
-                ],
-              )),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

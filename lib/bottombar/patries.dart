@@ -45,7 +45,7 @@ class _patriesPageState extends State<patriesPage> {
           height: 50,
           width: 150,
           decoration: BoxDecoration(
-              color: Colors.grey, borderRadius: BorderRadius.circular(18)),
+              color: Colors.blue, borderRadius: BorderRadius.circular(18)),
           child: Row(
             children: [
               Padding(
@@ -102,8 +102,9 @@ class _patriesPageState extends State<patriesPage> {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 10, left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Expanded(
                         child: Text(
@@ -114,9 +115,6 @@ class _patriesPageState extends State<patriesPage> {
                               fontWeight: FontWeight.w600),
                         ),
                       ),
-                      SizedBox(
-                        width: 30,
-                      ),
                       Expanded(
                         child: Text(
                           "SUPLIERS",
@@ -125,9 +123,6 @@ class _patriesPageState extends State<patriesPage> {
                               fontSize: 12,
                               fontWeight: FontWeight.w600),
                         ),
-                      ),
-                      SizedBox(
-                        width: 70,
                       ),
                       IconButton(
                           onPressed: () {},

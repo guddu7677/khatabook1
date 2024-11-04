@@ -12,11 +12,11 @@ class bottombar extends StatefulWidget {
 }
 
 class _CUSTOMERSState extends State<bottombar> {
-  int _selectedindex = 0;
+  int _selectedindex = 1;
   static final List<Widget> _screen = [
     patriesPage(),
     patriesPage(),
-    Container(),
+    Billspage(),
     Container(),
     Container(),
   ];

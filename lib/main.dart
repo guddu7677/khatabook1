@@ -6,11 +6,13 @@ import 'package:khata_books/ButtonPage/gave_got.dart';
 import 'package:khata_books/ButtonPage/add_party.dart';
 import 'package:khata_books/ButtonPage/you_gave.dart';
 import 'package:khata_books/ButtonPage/you_got.dart';
+import 'package:khata_books/bottombar/bills.dart';
 import 'package:khata_books/bottombar/patries.dart';
 import 'package:khata_books/pages/home_page.dart';
 import 'package:khata_books/pages/login_page.dart';
 import 'package:khata_books/pages/otp_screen.dart';
 import 'package:khata_books/bottombar/bottombar.dart';
+import 'package:khata_books/tabbar/tab_bar/add_bill.dart';
 
 void main() {
   runApp(
@@ -24,18 +26,19 @@ class khatabook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "yougave",
+      initialRoute: "Addbill",
       routes: {
         "loginpage": (context) => loginpage(),
         "homepage": (context) => homepage(),
-        "otpscreen": (context) => otpscreen(),
+        "otpscreen": (context) => Otpscreen(),
         "bottombar": (context) => bottombar(),
         "patriesPage": (context) => patriesPage(),
         "addcustomer": (context) => addcustomer(),
         "addparty": (context) => AddParty(),
         "gavegot": (context) => gavegot(),
         "yougave": (context) => yougave(),
-        // "NumericKeyboardExample": (context) => NumericKeyboardExample()
+        "Billspage": (context) => Billspage(),
+        "Addbill": (context) => Addbill(),
       },
       home: loginpage(),
       theme: ThemeData(),
