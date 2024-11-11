@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:khata_books/bottombar/bottom_sheet/item_bill.dart';
 import 'package:khata_books/bottombar/bottom_sheet/sale_bill.dart'; // Make sure to add intl in your pubspec.yaml
 
 class Addbill extends StatefulWidget {
@@ -152,9 +153,14 @@ class _AddbillState extends State<Addbill> {
                   padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
                   child: Row(
                     children: [
-                      Text(
-                        "+ ADD NEW PARTY",
-                        style: TextStyle(color: Colors.blue, fontSize: 12),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, "addparty");
+                        },
+                        child: Text(
+                          "+ ADD NEW PARTY",
+                          style: TextStyle(color: Colors.blue, fontSize: 12),
+                        ),
                       ),
                     ],
                   ),
@@ -212,9 +218,23 @@ class _AddbillState extends State<Addbill> {
                   padding: const EdgeInsets.only(left: 8, right: 8, top: 5),
                   child: Row(
                     children: [
-                      Text(
-                        "+ ADD NEW PARTY",
-                        style: TextStyle(color: Colors.blue, fontSize: 12),
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                              context: context,
+                              shape: BeveledRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(6),
+                                topRight: Radius.circular(6),
+                              )),
+                              builder: ((context) {
+                                return itembill();
+                              }));
+                        },
+                        child: Text(
+                          "+ ADD NEW ITEM",
+                          style: TextStyle(color: Colors.blue, fontSize: 12),
+                        ),
                       ),
                     ],
                   ),

@@ -7,11 +7,13 @@ import 'package:khata_books/ButtonPage/add_party.dart';
 import 'package:khata_books/ButtonPage/you_gave.dart';
 import 'package:khata_books/ButtonPage/you_got.dart';
 import 'package:khata_books/bottombar/bills.dart';
+import 'package:khata_books/bottombar/items.dart';
 import 'package:khata_books/bottombar/patries.dart';
 import 'package:khata_books/pages/home_page.dart';
 import 'package:khata_books/pages/login_page.dart';
 import 'package:khata_books/pages/otp_screen.dart';
 import 'package:khata_books/bottombar/bottombar.dart';
+import 'package:khata_books/tabbar/itemtab/add_product.dart';
 import 'package:khata_books/tabbar/tab_bar/add_bill.dart';
 
 void main() {
@@ -26,7 +28,7 @@ class khatabook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "Addbill",
+      initialRoute: "loginpage",
       routes: {
         "loginpage": (context) => loginpage(),
         "homepage": (context) => homepage(),
@@ -39,6 +41,8 @@ class khatabook extends StatelessWidget {
         "yougave": (context) => yougave(),
         "Billspage": (context) => Billspage(),
         "Addbill": (context) => Addbill(),
+        "ItemsPage": (context) => ItemsPage(),
+        "addproducts": (context) => addproducts(),
       },
       home: loginpage(),
       theme: ThemeData(),

@@ -16,6 +16,12 @@ class patriesPage extends StatefulWidget {
 class _patriesPageState extends State<patriesPage> {
   TextEditingController searchController = TextEditingController();
   @override
+  void dispose() {
+    searchController.dispose(); // Clean up any controllers or listeners
+    super.dispose(); // Call the super class dispose
+  }
+
+  @override
   void initState() {
     super.initState();
     loadData();
@@ -30,7 +36,10 @@ class _patriesPageState extends State<patriesPage> {
     PayModel.items = List.from(productsData)
         .map<Item>((item) => Item.fromMap(item))
         .toList();
-    setState(() {});
+    if (mounted) {
+      // Check if the widget is still mounted
+      setState(() {});
+    }
   }
 
   @override
