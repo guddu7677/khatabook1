@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khata_books/bottombar/bottombar.dart';
 
 class addcustomer extends StatefulWidget {
   const addcustomer({super.key});
@@ -40,32 +41,33 @@ class _addcustomerState extends State<addcustomer> {
             ),
           ),
           TextButton(
-              style: ButtonStyle(
-                  overlayColor: MaterialStatePropertyAll(Colors.white)),
-              onPressed: () {
-                Navigator.pushNamed(context, "addparty");
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.add_circle_outline_outlined,
-                        size: 40,
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'Add Customer',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                  Icon(Icons.keyboard_arrow_right_outlined)
-                ],
-              ))
+            style: ButtonStyle(
+                overlayColor: MaterialStatePropertyAll(Colors.white)),
+            onPressed: () {
+              Navigator.pushNamed(context, "addparty");
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      Icons.add_circle_outline_outlined,
+                      size: 40,
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      'Add Customer',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+                Icon(Icons.keyboard_arrow_right_outlined)
+              ],
+            ),
+          ),
         ],
       ),
     );

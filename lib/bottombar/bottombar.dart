@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:khata_books/bottombar/bills.dart';
 import 'package:khata_books/bottombar/items.dart';
+import 'package:khata_books/bottombar/more.dart';
 import 'package:khata_books/bottombar/patries.dart';
 
 class bottombar extends StatefulWidget {
@@ -19,7 +20,7 @@ class _CUSTOMERSState extends State<bottombar> {
     patriesPage(),
     Billspage(),
     ItemsPage(),
-    Container(),
+    MorePage(),
   ];
   void _onItemTapped(int index) {
     setState(() {
