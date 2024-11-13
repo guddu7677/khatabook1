@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MorePage extends StatefulWidget {
   const MorePage({super.key});
@@ -8,22 +10,29 @@ class MorePage extends StatefulWidget {
 }
 
 class _MorePageState extends State<MorePage> {
+  bool _customicon = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        leading: Icon(
+          Icons.book_online,
+          color: Colors.white,
+        ),
         title: Row(
           children: [
-            Icon(
-              Icons.book_online_outlined,
-              color: Colors.white,
-            ),
-            SizedBox(width: 8),
             Text(
               "guddug",
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
+            SizedBox(
+              width: 4,
+            ),
+            Icon(
+              Icons.keyboard_arrow_down,
+              color: Colors.white,
+            )
           ],
         ),
       ),
@@ -141,22 +150,416 @@ class _MorePageState extends State<MorePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    height: 100,
-                    width: 90,
-                    color: Colors.amber,
+                    height: 120,
+                    width: 110,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade300,
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(0, 5))
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 30,
+                            child: Icon(Icons.library_books_outlined),
+                          ),
+                        ),
+                        Text("Cashback")
+                      ],
+                    ),
                   ),
                   Container(
-                    height: 100,
-                    width: 80,
-                    color: Colors.amber,
+                    height: 120,
+                    width: 110,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade300,
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(0, 5))
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            radius: 30,
+                            child: Icon(Icons.person_add_alt),
+                          ),
+                        ),
+                        Text("Staff")
+                      ],
+                    ),
                   ),
                   Container(
-                    height: 100,
-                    width: 80,
-                    color: Colors.amber,
+                    height: 120,
+                    width: 110,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade300,
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(0, 5))
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.amber.shade200,
+                            radius: 30,
+                            child: Icon(
+                              Icons.card_membership,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 4, left: 4),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(child: Text("Bussiness card ")),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 8, left: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 120,
+                    width: 110,
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.5),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade300,
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: Offset(0, 5))
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.amber.shade200,
+                            radius: 30,
+                            child: Icon(
+                              Icons.card_membership,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 4, left: 4),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(child: Text("Bussiness Stump ")),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              width: double.infinity, // Remove fixed height, only keep width
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300,
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0, 5))
+                ],
+              ),
+              child: ExpansionTile(
+                iconColor: Colors.blue,
+                textColor: Colors.blue,
+                leading: Icon(Icons.settings),
+                title: Text("Settings"),
+                trailing: Icon(
+                  _customicon
+                      ? Icons.keyboard_arrow_down
+                      : Icons.keyboard_arrow_right,
+                ),
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "SmsSetting");
+                    },
+                    child: ListTile(
+                      title: Text("SMS Setting"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Payment Setting"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Recycle Bin"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("App Lock"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Language"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Backup Information"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Delete Khata"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("App Update"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                ],
+                onExpansionChanged: (bool expanded) {
+                  setState(() => _customicon = expanded);
+                },
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              width: double.infinity, // Remove fixed height, only keep width
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300,
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0, 5))
+                ],
+              ),
+              child: ExpansionTile(
+                iconColor: Colors.blue,
+                textColor: Colors.blue,
+                leading: Icon(Icons.help_center),
+                title: Text(
+                  "Help & Support",
+                ),
+                trailing: Icon(
+                  _customicon
+                      ? Icons.keyboard_arrow_down
+                      : Icons.keyboard_arrow_right,
+                ),
+                children: [
+                  ListTile(
+                    title: Text("FAQs"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Help on Whatsapp"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Call Us"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                ],
+                onExpansionChanged: (bool expanded) {
+                  setState(() => _customicon = expanded);
+                },
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              width: double.infinity, // Remove fixed height, only keep width
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.shade300,
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: Offset(0, 5))
+                ],
+              ),
+              child: ExpansionTile(
+                iconColor: Colors.blue,
+                textColor: Colors.blue,
+                leading: Icon(Icons.settings),
+                title: Text("About Us"),
+                trailing: Icon(
+                  _customicon
+                      ? Icons.keyboard_arrow_down
+                      : Icons.keyboard_arrow_right,
+                ),
+                children: [
+                  ListTile(
+                    title: Text("About Khatabook"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Privacy Policy"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text("Tearm & Conditions"),
+                    trailing: Icon(Icons.keyboard_arrow_right),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Container(
+                      height: 2,
+                      width: double.infinity,
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
+                ],
+                onExpansionChanged: (bool expanded) {
+                  setState(() => _customicon = expanded);
+                },
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              height: 80,
+              decoration: BoxDecoration(
+                  color: Colors.grey.shade100,
+                  border: Border.all(color: Colors.grey.shade300)),
+              child: Center(child: Text("Invite Friend")),
             )
           ],
         ),

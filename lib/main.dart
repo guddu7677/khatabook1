@@ -12,10 +12,12 @@ import 'package:khata_books/bottombar/more.dart';
 import 'package:khata_books/bottombar/patries.dart';
 import 'package:khata_books/pages/home_page.dart';
 import 'package:khata_books/pages/login_page.dart';
-import 'package:khata_books/pages/morepage/book_page.dart';
+import 'package:khata_books/pages/morepage/book_profile.dart';
+import 'package:khata_books/pages/morepage/setting_page/sms_setting.dart';
 import 'package:khata_books/pages/otp_screen.dart';
 import 'package:khata_books/bottombar/bottombar.dart';
 import 'package:khata_books/tabbar/itemtab/add_product.dart';
+import 'package:khata_books/tabbar/smstabbar/smstab.dart';
 import 'package:khata_books/tabbar/tab_bar/add_bill.dart';
 
 void main() {
@@ -30,7 +32,7 @@ class khatabook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "Book_Profile",
+      initialRoute: "SmsSetting",
       routes: {
         "loginpage": (context) => loginpage(),
         "homepage": (context) => homepage(),
@@ -46,7 +48,9 @@ class khatabook extends StatelessWidget {
         "ItemsPage": (context) => ItemsPage(),
         "addproducts": (context) => addproducts(),
         "MorePage": (context) => MorePage(),
-        "Book_Profile": (context) => Book_Profile()
+        "Book_Profile": (context) => Book_Profile(),
+        "SmsSetting": (context) => SmsSetting(),
+        "mynumber": (context) => mynumber(),
       },
       home: loginpage(),
       theme: ThemeData(),
