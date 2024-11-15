@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:khata_books/tabbar/smstabbar/khatabooksms.dart';
+import 'package:khata_books/tabbar/smstabbar/smstab.dart';
 
 class SmsSetting extends StatefulWidget {
   const SmsSetting({super.key});
@@ -44,6 +46,18 @@ class _SmsSettingState extends State<SmsSetting>
           style: TextStyle(color: Colors.white),
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,elevation: 1,shadowColor: Colors.grey,
+        child: InkWell(onTap: () {
+        },
+          child: Container(
+            height: 20,
+            width: double.infinity,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(4),color: Colors.blue),
+            child: Center(child: Text("Save")),
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Padding(
@@ -72,7 +86,7 @@ class _SmsSettingState extends State<SmsSetting>
                 isScrollable: false,
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicator: BoxDecoration(
-                  color: Colors.white, // Tab indicator color
+                  color: Colors.white54, // Tab indicator color
                   borderRadius: BorderRadius.circular(8),
                 ),
                 tabs: [
@@ -108,15 +122,10 @@ class _SmsSettingState extends State<SmsSetting>
               controller: tabController,
               children: [
                 // Content for the first tab "My Number"
-                Container(
-                  color: Colors.white,
-                  child: Center(child: Text('Content for My Number')),
-                ),
+                mynumber(),
+                khata_sms(),
                 // Content for the second tab "SMS Book"
-                Container(
-                  color: Colors.white,
-                  child: Center(child: Text('Content for SMS Book')),
-                ),
+               
               ],
             ),
           ),

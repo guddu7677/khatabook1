@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:khata_books/pages/morepage/setting_page/payment_setting.dart';
 
 class MorePage extends StatefulWidget {
   const MorePage({super.key});
@@ -331,9 +332,22 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Payment Setting"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(onTap: () {
+                    showModalBottomSheet(
+                                context: context,
+                                shape: BeveledRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(6),
+                                  topRight: Radius.circular(6),
+                                )),
+                                builder: ((context) {
+                                  return PaySetting();
+                                })); // Edit ac
+                  },
+                    child: ListTile(
+                      title: Text("Payment Setting"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),

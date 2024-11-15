@@ -32,7 +32,7 @@ class khatabook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "SmsSetting",
+      initialRoute: "MorePage",
       routes: {
         "loginpage": (context) => loginpage(),
         "homepage": (context) => homepage(),
