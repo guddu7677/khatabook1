@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:khata_books/pages/morepage/setting_page/payment_setting.dart';
+import 'package:language_picker/language_picker_dialog.dart';
+import 'package:language_picker/languages.dart';
 
 class MorePage extends StatefulWidget {
   const MorePage({super.key});
@@ -11,6 +11,9 @@ class MorePage extends StatefulWidget {
 }
 
 class _MorePageState extends State<MorePage> {
+  Language _selectedDropdownLanguage = Languages.english;
+  Language _selectedDialogLanguage = Languages.english;
+  Language _selectedCupertinoLanguage = Languages.english;
   bool _customicon = false;
   @override
   Widget build(BuildContext context) {
@@ -332,18 +335,19 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  InkWell(onTap: () {
-                    showModalBottomSheet(
-                                context: context,
-                                shape: BeveledRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(6),
-                                  topRight: Radius.circular(6),
-                                )),
-                                builder: ((context) {
-                                  return PaySetting();
-                                })); // Edit ac
-                  },
+                  InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                          context: context,
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(6),
+                            topRight: Radius.circular(6),
+                          )),
+                          builder: ((context) {
+                            return PaySetting();
+                          })); // Edit ac
+                    },
                     child: ListTile(
                       title: Text("Payment Setting"),
                       trailing: Icon(Icons.keyboard_arrow_right),
@@ -357,9 +361,14 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Recycle Bin"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "RecycleBin");
+                    },
+                    child: ListTile(
+                      title: Text("Recycle Bin"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -381,9 +390,14 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Language"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      _selectLanguage();
+                    },
+                    child: ListTile(
+                      title: Text("Language"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -393,9 +407,14 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Backup Information"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "Backupinfo");
+                    },
+                    child: ListTile(
+                      title: Text("Backup Information"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -405,9 +424,14 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Delete Khata"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "DeleteKhata");
+                    },
+                    child: ListTile(
+                      title: Text("Delete Khata"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -455,9 +479,14 @@ class _MorePageState extends State<MorePage> {
                       : Icons.keyboard_arrow_right,
                 ),
                 children: [
-                  ListTile(
-                    title: Text("FAQs"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "FAQs");
+                    },
+                    child: ListTile(
+                      title: Text("FAQs"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -578,6 +607,28 @@ class _MorePageState extends State<MorePage> {
           ],
         ),
       ),
+    );
+  }
+
+  _selectLanguage() {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return LanguagePickerDialog(
+          title: Text("Select your Language"),
+          onValuePicked: (Language language) {
+            // Update locale based on selected language
+            setState(() {
+              if (language.isoCode == 'en') {
+                var _locale = Locale('en', '');
+              } else if (language.isoCode == 'es') {
+                var _locale = Locale('es', '');
+              }
+              // Add more languages as needed
+            });
+          },
+        );
+      },
     );
   }
 }

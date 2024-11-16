@@ -13,6 +13,10 @@ import 'package:khata_books/bottombar/patries.dart';
 import 'package:khata_books/pages/home_page.dart';
 import 'package:khata_books/pages/login_page.dart';
 import 'package:khata_books/pages/morepage/book_profile.dart';
+import 'package:khata_books/pages/morepage/help&support/faqs.dart';
+import 'package:khata_books/pages/morepage/setting_page/backupi_nfo.dart';
+import 'package:khata_books/pages/morepage/setting_page/delete_khata.dart';
+import 'package:khata_books/pages/morepage/setting_page/recycle_bin.dart';
 import 'package:khata_books/pages/morepage/setting_page/sms_setting.dart';
 import 'package:khata_books/pages/otp_screen.dart';
 import 'package:khata_books/bottombar/bottombar.dart';
@@ -51,6 +55,10 @@ class khatabook extends StatelessWidget {
         "Book_Profile": (context) => Book_Profile(),
         "SmsSetting": (context) => SmsSetting(),
         "mynumber": (context) => mynumber(),
+        "RecycleBin": (context) => RecycleBin(),
+        "Backupinfo": (context) => Backup_info(),
+        "DeleteKhata": (context) => DeleteKhata(),
+        "FAQs": (context) => FAQs(),
       },
       home: loginpage(),
       theme: ThemeData(),
