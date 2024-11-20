@@ -153,30 +153,35 @@ class _MorePageState extends State<MorePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 120,
-                    width: 110,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.5),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade300,
-                            spreadRadius: 5,
-                            blurRadius: 10,
-                            offset: Offset(0, 5))
-                      ],
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: CircleAvatar(
-                            radius: 30,
-                            child: Icon(Icons.library_books_outlined),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "Cashbook");
+                    },
+                    child: Container(
+                      height: 120,
+                      width: 110,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.5),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.grey.shade300,
+                              spreadRadius: 5,
+                              blurRadius: 10,
+                              offset: Offset(0, 5))
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              radius: 30,
+                              child: Icon(Icons.library_books_outlined),
+                            ),
                           ),
-                        ),
-                        Text("Cashback")
-                      ],
+                          Text("Cashback")
+                        ],
+                      ),
                     ),
                   ),
                   Container(
@@ -552,9 +557,14 @@ class _MorePageState extends State<MorePage> {
                       : Icons.keyboard_arrow_right,
                 ),
                 children: [
-                  ListTile(
-                    title: Text("About Khatabook"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "Aboutkhata");
+                    },
+                    child: ListTile(
+                      title: Text("About Khatabook"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -564,9 +574,14 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Privacy Policy"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "PrivacyPolicy");
+                    },
+                    child: ListTile(
+                      title: Text("Privacy Policy"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -576,9 +591,14 @@ class _MorePageState extends State<MorePage> {
                       color: Colors.grey.shade300,
                     ),
                   ),
-                  ListTile(
-                    title: Text("Tearm & Conditions"),
-                    trailing: Icon(Icons.keyboard_arrow_right),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, "TermCondition");
+                    },
+                    child: ListTile(
+                      title: Text("Tearm & Conditions"),
+                      trailing: Icon(Icons.keyboard_arrow_right),
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),

@@ -12,6 +12,10 @@ import 'package:khata_books/bottombar/more.dart';
 import 'package:khata_books/bottombar/patries.dart';
 import 'package:khata_books/pages/home_page.dart';
 import 'package:khata_books/pages/login_page.dart';
+import 'package:khata_books/pages/morepage/About_us/Term&condittion.dart';
+import 'package:khata_books/pages/morepage/About_us/about_khata.dart';
+import 'package:khata_books/pages/morepage/About_us/privacy.dart';
+import 'package:khata_books/pages/morepage/Cashback.dart';
 import 'package:khata_books/pages/morepage/book_profile.dart';
 import 'package:khata_books/pages/morepage/help&support/faqs.dart';
 import 'package:khata_books/pages/morepage/setting_page/backupi_nfo.dart';
@@ -36,7 +40,7 @@ class khatabook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "MorePage",
+      initialRoute: "Cashbook",
       routes: {
         "loginpage": (context) => loginpage(),
         "homepage": (context) => homepage(),
@@ -59,6 +63,10 @@ class khatabook extends StatelessWidget {
         "Backupinfo": (context) => Backup_info(),
         "DeleteKhata": (context) => DeleteKhata(),
         "FAQs": (context) => FAQs(),
+        "Aboutkhata": (context) => Aboutkhata(),
+        "PrivacyPolicy": (context) => Privacy_Policy(),
+        "TermCondition": (context) => Term_condition(),
+        "Cashbook": (context) => Cashbook(),
       },
       home: loginpage(),
       theme: ThemeData(),
